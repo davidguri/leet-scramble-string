@@ -9,16 +9,27 @@ def toArray(string):
     array[:0] = string
     return array
 
-def scrambleStr(array, length):
+def scrambleArr(array, length):
     if length == 0:
         print("Length = 0")
     else:
-        scramble_array = random.shuffle(array)
-        print("Scramble array>>>")
-        print(scramble_array)
+        scrambled = sorted(array, key = lambda x : random.random())
+        print(scrambled)
         
-        
+def checkArray(input_array, check_array):
+    for i in range(len(input_array)):
+        if i in check_array:
+            inArray = True
+        else:
+            inArray = False
+    if inArray == True:
+        print(inArray)
+    else:
+        print(False)
+# this dont work, it broke
+
 string = "hello"
 array = toArray(string)
-print("Scramble string")
-print(scrambleStr(toArray(string), len(string)))
+print(array)
+scrambled_array = scrambleArr(array, len(array))
+checkArray(array, scrambled_array)
