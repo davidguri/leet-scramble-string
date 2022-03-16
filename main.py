@@ -1,8 +1,4 @@
-import random
-
-# split two inputs into seperate arrays
-# loop for each letter of unscrambled word if it is contained in the second array
-# if all letters of first array are included, and the lenght of both arrays match then output true else false
+iimport random
 
 def toArray(string):
     array = []
@@ -15,7 +11,7 @@ def binary_search(arr, x):
     mid = 0
     while low <= high:
         mid = (high + low) // 2
-        if arr[mid] < x:
+        if arr[mid] < int(x):
             low = mid + 1
         elif arr[mid] > x:
             high = mid - 1
@@ -28,7 +24,6 @@ def scrambleArr(array, length):
         print("Length = 0")
     else:
         scrambled = sorted(array, key = lambda x : random.random())
-        print(scrambled)
         
 def checkArray(input_array, check_array):
     for i in range(len(input_array)):
@@ -41,10 +36,32 @@ def checkArray(input_array, check_array):
         print(inArray)
     else:
         print(False)
-# this dont work, it broke
+
+string = "hello"
+print("Main string: ", string)
+
+array = toArray(string)
+print("Main array: ", array)
+
+len_array=len(array)
+print("Len of array: ", len_array)
+
+if len_array == 0:
+    print("Length = 0")
+else:
+    check_array = sorted(array, key = lambda x : random.random())
+print("Check array: ", check_array)
+
+len_check_array = len(check_array)
+print("Len of check array: ", len_check_array)
+checkArray(array, check_array)
+
+    if inArray == True:
+        print(inArray)
+    else:
+        print(False)
 
 string = "hello"
 array = toArray(string)
 print(array)
-scrambled_array = scrambleArr(array, len(array))
-checkArray(array, scrambled_array)
+checkArray(array, scrambleArr(array, len(array)))
